@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { Route, Link } from "react-router-dom"
+import { Switch, Route, Link } from "react-router-dom"
 import { Layout, Typography, Space} from "antd"
-import NavBar from "./components/navBar"
+import { NavBar } from "./components"
 
 function App() {
   
@@ -13,7 +13,29 @@ function App() {
       <div className="navBar">
         <NavBar />
       </div>
-      <div className="main"></div>
+      <div className="main">
+        <Layout>
+          <div className="routes">
+            <Switch>
+              <Route exact path="/">
+                <Homepage />
+              </Route>
+              <Route exact path="/exchanges">
+                <Exchanges />
+              </Route>
+              <Route exact path="/cryptocurrencies">
+                <Cryptocurrencies />
+              </Route>
+              <Route exact path="/crypto/:coinId">
+                <CryptoInformation />
+              </Route>
+              <Route exact path="/news">
+                <News />
+              </Route>
+            </Switch>
+          </div>
+        </Layout>
+      </div>
       <div className="footer"></div>
       
     </div>

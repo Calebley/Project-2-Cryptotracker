@@ -3,7 +3,7 @@ import logo from './logo.svg'
 import './App.css'
 import { Switch, Route, Link } from "react-router-dom"
 import { Layout, Typography, Space} from "antd"
-import { NavBar } from "./components"
+import { NavBar, Exchanges, Homepage, Cryptocurrencies, CryptoInfo, News  } from "./components"
 
 function App() {
   
@@ -27,7 +27,7 @@ function App() {
                 <Cryptocurrencies />
               </Route>
               <Route exact path="/crypto/:coinId">
-                <CryptoInformation />
+                <CryptoInfo />
               </Route>
               <Route exact path="/news">
                 <News />

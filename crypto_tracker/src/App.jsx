@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { Routes, Route, Link } from "react-router-dom"
+import { Outlet, Link } from "react-router-dom"
 import { Layout, Typography, Space} from "antd"
 import { NavBar, Exchanges, Homepage, Cryptocurrencies, CryptoInfo, News } from "./components"
 
@@ -26,7 +26,7 @@ function App() {
           
         </Space>
       </div>
-      
+      <Outlet />
     </div>
   )
 }

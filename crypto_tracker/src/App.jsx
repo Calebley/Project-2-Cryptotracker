@@ -15,9 +15,16 @@ function App() {
       </div>
       
       <div className="footer">
-        <Typography.Title >
+        <Typography.Title level={5} styles={{ color: "white", textAlign: "center" }}>
           Cryptotracker <br />
         </Typography.Title>
+
+        <Space>
+          <Link to="/">Home</Link>
+          <Link to="/exchanges">Exchanges</Link>
+          <Link to="/news">News</Link>
+          
+        </Space>
       </div>
       
     </div>

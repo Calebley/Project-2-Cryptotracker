@@ -2,6 +2,17 @@
   text-align: center;
 }
 
+.navBar{
+  position: fixed;
+  left: 0;
+  margin: 10px;
+  height: 100vh;
+  margin: 0px;
+  background-color: yellow
+}
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

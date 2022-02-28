@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.crypto-card-container{
+  min-height: 65vh !important;
+  border: 1px black;
+}
+
+.crypto-card{
+  min-width: 250px;
+}
+
+.crypto-card .crypto-image{
+  width:35px;
+}
+

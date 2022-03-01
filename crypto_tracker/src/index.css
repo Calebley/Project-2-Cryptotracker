@@ -1,27 +1,31 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.app{
+  display: flex;
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.routes{
+  padding: 20px;
 }
 
 .crypto-card-container{
   min-height: 65vh !important;
-  border: 1px black;
+  display: inline-block;
+  
 }
 
 .crypto-card{
-  min-width: 250px;
+  width: 250px;
+  border: 1px solid black;
+  margin: 0.5px;
+  
+  padding: 1px;
 }
 
 .crypto-card .crypto-image{
   width:35px;
+}
+
+.ant-row{
+  
 }
 

@@ -8,24 +8,21 @@
 }
 
 .crypto-card-container{
-  min-height: 65vh !important;
-  display: inline-block;
-  
+  display: inline-flex;
 }
 
 .crypto-card{
-  width: 250px;
+  width: 100px;
   border: 1px solid black;
   margin: 0.5px;
-  
   padding: 1px;
+  order: 10
+
 }
 
-.crypto-card .crypto-image{
+.crypto-image{
   width:35px;
 }
 
-.ant-row{
-  
-}
+
 

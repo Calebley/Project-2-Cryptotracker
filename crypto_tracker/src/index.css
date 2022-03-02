@@ -7,8 +7,18 @@
   padding: 20px;
 }
 
+.ant-row{
+  display: inline-flex;
+}
+
+.ant-col{
+  margin: 2px;
+}
+
 .crypto-card-container{
   display: inline-flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
 }
 
 .crypto-card{
@@ -16,7 +26,6 @@
   border: 1px solid black;
   margin: 0.5px;
   padding: 1px;
-  order: 10
 
 }
 

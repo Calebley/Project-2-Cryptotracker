@@ -5,6 +5,7 @@ import millify from "millify";
 import { Col, Row, Typography, Select } from 'antd';
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import { useGetCryptoDetailsQuery } from "../services/cryptoApi";
+import LineChart  from "./LineChart"
 
 const { Title, Text } = Typography
 
@@ -29,6 +30,8 @@ const CryptoInfo = () => {
     ];
 
     return (
+        <div>
+        <LineChart currentPrice={millify(cryptoInfo.price)} coinName={millify(cryptoInfo.name)}/>
         <Col className="coin-detail-container">
             <Col className="coin-heading-container">
                 <Title level={2} className="coin-name">
@@ -54,6 +57,7 @@ const CryptoInfo = () => {
                 </Row>
             </Col>
         </Col>
+        </div>
     )
 }
 

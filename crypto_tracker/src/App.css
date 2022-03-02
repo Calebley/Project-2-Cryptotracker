@@ -3,13 +3,14 @@
 }
 
 .navBar{
-  position: fixed;
+  /* position: fixed;
   left: 0;
   margin: 10px;
   height: 100vh;
   margin: 0px;
   background-color: greenyellow;
-  overflow: auto;
+  overflow: auto; */
+  display: inline-flex
 }
 
 .App-header {

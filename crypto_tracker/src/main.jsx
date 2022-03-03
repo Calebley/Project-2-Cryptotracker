@@ -11,7 +11,7 @@ import { Provider } from "react-redux"
 
 const rootElement = document.getElementById("root")
 render(
-  <BrowserRouter>
+  <BrowserRouter basename="/Project-2-Cryptotracker">
     <Provider store={store}>
       <Routes>
         <Route path="/" element={<App />} >

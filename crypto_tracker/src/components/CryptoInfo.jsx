@@ -8,6 +8,7 @@ import { useGetCryptoDetailsQuery } from "../services/cryptoApi";
 import LineChart  from "./LineChart"
 
 const { Title, Text } = Typography
+const { Option } = Select
 
 const CryptoInfo = () => {
     const { coinId } = useParams()

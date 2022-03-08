@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom"
 import millify from "millify";
 import { Col, Row, Typography, Select } from 'antd';
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
-import { useGetCryptoDetailsQuery } from "../services/cryptoApi";
-import LineChart  from "./LineChart"
+import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from "../services/cryptoApi";
+import LineChart from "./LineChart"
 
 const { Title, Text } = Typography
 const { Option } = Select
@@ -14,11 +14,12 @@ const CryptoInfo = () => {
     const { coinId } = useParams()
     const [timePeriod, setTimePeriod] = useState("7d")
     const { data, isFetching } = useGetCryptoDetailsQuery(coinId)
+    const { data: coinHistory } = useGetCryptoDetailsQuery({ coinId, timePeriod })
     const cryptoInfo = data?.data?.coin;
 
     if (isFetching) return "Loading..."
     console.log(data)
-   
+
 
     const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
@@ -32,20 +33,34 @@ const CryptoInfo = () => {
 
     return (
         <div>
-        <LineChart currentPrice={millify(cryptoInfo.price)} coinName={millify(cryptoInfo.name)}/>
-        <Col className="coin-detail-container">
-            <Col className="coin-heading-container">
-                <Title level={2} className="coin-name">
-                    {cryptoInfo.name} Details
-                </Title>
-                <p>{cryptoInfo.name} Statistics</p>
+
+            <Col className="coin-detail-container">
+                <Col className="coin-heading-container">
+                    <Title level={2} className="coin-name">
+                        {cryptoInfo.name} Details
+                    </Title>
+                    <p>{cryptoInfo.name} Statistics</p>
+                </Col>
+
+                <Select
+                    defaultValue="7d"
+                    className="select-timeperiod"
+                    
+                    onChange={(value) => setTimePeriod(value)}>
+                    {time.map((date) => {
+                        return (
+                            <Option key={date} value={date}>{date}</Option>
+                        )
+                    })}
+                </Select>
+                {/* <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoInfo?.price)} coinName={cryptoInfo?.name} /> */}
                 {stats.map(({ icon, title, value }) => (
                     <Col className="coin-stats">
                         <Col className="coin-stats-name">
-                        <Text>{icon}</Text>
-                        <Text>{title}</Text>
-                    </Col>
-                    <Text className="stats">{value}</Text>
+                            <Text>{icon}</Text>
+                            <Text>{title}</Text>
+                        </Col>
+                        <Text className="stats">{value}</Text>
                     </Col>
                 ))}
             </Col>
@@ -57,7 +72,7 @@ const CryptoInfo = () => {
                     </Title>
                 </Row>
             </Col>
-        </Col>
+
         </div>
     )
 }

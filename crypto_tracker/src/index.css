@@ -80,3 +80,9 @@ justify-content: center;
 .stats{
   font-weight: 800;
 }
+
+.select-timeperiod{
+  width: 200px;
+  margin-top: 20px;
+  border-color: 1px bold black
+}

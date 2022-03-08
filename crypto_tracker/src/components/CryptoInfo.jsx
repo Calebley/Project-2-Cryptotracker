@@ -5,7 +5,8 @@ import millify from "millify";
 import { Col, Row, Typography, Select } from 'antd';
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from "../services/cryptoApi";
-import LineChart from "./LineChart"
+import LineChart from "./LineChart";
+
 
 const { Title, Text } = Typography
 const { Option } = Select
@@ -14,7 +15,7 @@ const CryptoInfo = () => {
     const { coinId } = useParams()
     const [timePeriod, setTimePeriod] = useState("7d")
     const { data, isFetching } = useGetCryptoDetailsQuery(coinId)
-    const { data: coinHistory } = useGetCryptoDetailsQuery({ coinId, timePeriod })
+    const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timePeriod })
     const cryptoInfo = data?.data?.coin;
 
     if (isFetching) return "Loading..."
@@ -26,7 +27,7 @@ const CryptoInfo = () => {
     const stats = [
         { title: 'Price to USD', value: `$ ${cryptoInfo?.price && millify(cryptoInfo?.price)}`, icon: <DollarCircleOutlined /> },
         { title: 'Rank', value: cryptoInfo?.rank, icon: <NumberOutlined /> },
-        { title: '24h Volume', value: `$ ${cryptoInfo?.Volume && millify(cryptoInfo?.Volume)}`, icon: <ThunderboltOutlined /> },
+        { title: '24h Volume', value: ` ${cryptoInfo?.Volume && millify(cryptoInfo?.Volume)}`, icon: <ThunderboltOutlined /> },
         { title: 'Market Cap', value: `$ ${cryptoInfo?.marketCap && millify(cryptoInfo?.marketCap)}`, icon: <DollarCircleOutlined /> },
         { title: 'All-time-high(daily avg.)', value: `$ ${cryptoInfo?.allTimeHigh?.price && millify(cryptoInfo?.allTimeHigh?.price)}`, icon: <TrophyOutlined /> },
     ];
@@ -41,19 +42,6 @@ const CryptoInfo = () => {
                     </Title>
                     <p>{cryptoInfo.name} Statistics</p>
                 </Col>
-
-                <Select
-                    defaultValue="7d"
-                    className="select-timeperiod"
-                    
-                    onChange={(value) => setTimePeriod(value)}>
-                    {time.map((date) => {
-                        return (
-                            <Option key={date} value={date}>{date}</Option>
-                        )
-                    })}
-                </Select>
-                {/* <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoInfo?.price)} coinName={cryptoInfo?.name} /> */}
                 {stats.map(({ icon, title, value }) => (
                     <Col className="coin-stats">
                         <Col className="coin-stats-name">
@@ -64,6 +52,10 @@ const CryptoInfo = () => {
                     </Col>
                 ))}
             </Col>
+            <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimePeriod(value)}>
+                {time.map((date) => <Option key={date}>{date}</Option>)}
+            </Select>
+            {/* <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoInfo?.price)} coinName={cryptoInfo?.name} /> */}
             <Col className="coin-desc-link">
                 <Row className="coin-desc">
                     <Title level={4} className="coin-details-heading">

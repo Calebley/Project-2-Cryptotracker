@@ -77,12 +77,17 @@ justify-content: center;
   font-size: 1rem;
 }
 
+.coin-stats{
+  justify-content:space-around
+}
+
 .stats{
   font-weight: 800;
 }
 
 .select-timeperiod{
   width: 200px;
-  margin-top: 20px;
-  border-color: 1px bold black
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

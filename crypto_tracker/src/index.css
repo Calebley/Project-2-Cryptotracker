@@ -120,15 +120,15 @@ flex: 0.5;
   background-color: var(--bgSecondary);
 }
 
-.chart-header{
+/* .chart-header{
   display: flex;
   justify-content: space-between;
   gap: 50px;
-  color: #0071bd;
+  color: green;
 }
 .chart-title{
   color: #0071bd 
-}
+} */
 
 .price-container{
   display: flex; 
@@ -152,8 +152,10 @@ flex: 0.5;
   align-items: center;
   margin-top: 40px;
 }
+
 .show-more{
-  margin-top: 0px 
+  margin-top: 0px;
+  color:green
 }
 
 .search-crypto{

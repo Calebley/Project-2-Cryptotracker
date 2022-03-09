@@ -52,10 +52,10 @@ const CryptoInfo = () => {
                     </Col>
                 ))}
             </Col>
-            <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimePeriod(value)}>
+            {/* <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimePeriod(value)}>
                 {time.map((date) => <Option key={date}>{date}</Option>)}
             </Select>
-            <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoInfo?.price)} coinName={cryptoInfo?.name} />
+            <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoInfo?.price)} coinName={cryptoInfo?.name} /> */}
             <Col className="coin-desc-link">
                 <Row className="coin-desc">
                     <Title level={4} className="coin-details-heading">

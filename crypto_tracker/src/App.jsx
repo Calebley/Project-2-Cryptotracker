@@ -1,6 +1,9 @@
 import './App.css'
 import { Outlet } from "react-router-dom"
 import { NavBar } from "./components"
+import "antd/dist/antd.css";
+import "./index.css";
+
 
 function App() {
   

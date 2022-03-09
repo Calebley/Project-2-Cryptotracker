@@ -2,15 +2,14 @@
   text-align: center;
 }
 
-.navBar{
-  /* position: fixed;
-  left: 0;
-  margin: 10px;
-  height: 100vh;
-  margin: 0px;
-  background-color: greenyellow;
-  overflow: auto; */
-  display: inline-flex
+.nav-container{
+  margin: auto;
+  width: 100%;
+  padding: 1px;
+}
+
+.ant-menu-item{
+  text-align: center;
 }
 
 .App-header {

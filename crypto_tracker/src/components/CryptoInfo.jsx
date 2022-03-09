@@ -3,7 +3,7 @@ import HTMLReactParser from "html-react-parser"
 import { useParams } from "react-router-dom"
 import millify from "millify";
 import { Col, Row, Typography, Select } from 'antd';
-import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import { DollarCircleOutlined, TrophyOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from "../services/cryptoApi";
 import LineChart from "./LineChart";
 
@@ -25,11 +25,11 @@ const CryptoInfo = () => {
     const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
     const stats = [
-        { title: 'Price to USD', value: `$ ${cryptoInfo?.price && millify(cryptoInfo?.price)}`, icon: <DollarCircleOutlined /> },
-        { title: 'Rank', value: cryptoInfo?.rank, icon: <NumberOutlined /> },
-        { title: '24h Volume', value: ` ${cryptoInfo?.Volume && millify(cryptoInfo?.Volume)}`, icon: <ThunderboltOutlined /> },
-        { title: 'Market Cap', value: `$ ${cryptoInfo?.marketCap && millify(cryptoInfo?.marketCap)}`, icon: <DollarCircleOutlined /> },
-        { title: 'All-time-high(daily avg.)', value: `$ ${cryptoInfo?.allTimeHigh?.price && millify(cryptoInfo?.allTimeHigh?.price)}`, icon: <TrophyOutlined /> },
+        { title: 'Price to USD:', value: `$ ${cryptoInfo?.price && millify(cryptoInfo?.price)}`, icon: <DollarCircleOutlined /> },
+        { title: 'Rank:', value: cryptoInfo?.rank, icon: <NumberOutlined /> },
+        { title: '24h Volume:', value: ` ${cryptoInfo && millify(cryptoInfo["24hVolume"])}`, icon: <ThunderboltOutlined /> },
+        { title: 'Market Cap:', value: `$ ${cryptoInfo?.marketCap && millify(cryptoInfo?.marketCap)}`, icon: <DollarCircleOutlined /> },
+        { title: 'All-time-high(daily avg.):', value: `$ ${cryptoInfo?.allTimeHigh?.price && millify(cryptoInfo?.allTimeHigh?.price)}`, icon: <TrophyOutlined /> },
     ];
 
     return (
@@ -55,7 +55,7 @@ const CryptoInfo = () => {
             <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimePeriod(value)}>
                 {time.map((date) => <Option key={date}>{date}</Option>)}
             </Select>
-            {/* <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoInfo?.price)} coinName={cryptoInfo?.name} /> */}
+            <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoInfo?.price)} coinName={cryptoInfo?.name} />
             <Col className="coin-desc-link">
                 <Row className="coin-desc">
                     <Title level={4} className="coin-details-heading">

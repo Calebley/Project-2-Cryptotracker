@@ -1,20 +1,22 @@
 import React from "react"
-import { Button, Menu, Typography, Avatar } from "antd"
+import { Menu, Typography } from "antd"
 import { Link } from "react-router-dom"
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from "@ant-design/icons"
 
+
+
 const NavBar = () => {
+
+    
     return (
-        <div className="container">
-            <div className="logoContainer">
-                <Avatar />
+        <div className="nav-container">
+            <div className="logo-container">
                 <Typography.Title level={2} className="logo">
                     <Link to="/">Cryptotracker</Link>
                 </Typography.Title>
                 {/* <Button className="menuContainer">
 
                 </Button> */}
-
 
             </div>
             <Menu theme="dark">

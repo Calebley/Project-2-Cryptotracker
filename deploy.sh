@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+rm -rf dist
 # abort on errors
 set -e
 

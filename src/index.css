@@ -120,15 +120,16 @@ flex: 0.5;
   background-color: var(--bgSecondary);
 }
 
-/* .chart-header{
+.chart-header{
   display: flex;
   justify-content: space-between;
   gap: 50px;
   color: green;
 }
+
 .chart-title{
   color: #0071bd 
-} */
+}
 
 .price-container{
   display: flex; 

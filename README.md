@@ -6,6 +6,7 @@ Technologies used:
 1. React
 2. Redux toolkit (RTK) for API
 3. Ant design package for CSS
+4. Chartjs
 
 Planning and development:
 The project originated from the istocks tutorial that was done in one of the lessons. I decided to replace stocks with cryptocurrencies as this is an area I have been looking at recently.

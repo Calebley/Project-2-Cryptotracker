@@ -17,6 +17,5 @@ Troubleshoot based on notes, online resources and TAs
 Unsolved problems:
 Unable to convert timestamp from API to actual dates on chart
 
-
 APIs used:
 RapidApi, contains the data that I require

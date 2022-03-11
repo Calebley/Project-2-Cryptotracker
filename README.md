@@ -2,6 +2,9 @@
 
 This web app is designed to track up to 100 popular cryptocurrencies
 
+Wireframe
+![](images/Wireframe.png)
+
 Technologies used:
 1. React
 2. Redux toolkit (RTK) for API
